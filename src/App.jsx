@@ -1,17 +1,21 @@
 import './App.css';
-import { BrowserRouter as Route , Switch } from "react-router-dom"
+import { BrowserRouter as Router , Switch, Route } from "react-router-dom"
 import NavBar from './Components/NavBar';
 import CountriesList from './Components/CountriesList';
+import CountriesDetails from './Components/CountriesDetails';
+import { Container } from './styles';
 
 function App() {
   return (
-      <div  className="App">
+      <Router>
         <NavBar/>
+        <Container>
         <CountriesList/>
         <Switch>
-          <Route path=":/cca3"/>
+          <Route path="/:cca3" component={CountriesDetails} />
         </Switch>
-      </div>
+        </Container>
+      </Router>
   );
 }
 
